@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>NutriWise — Demo</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>NutriWise</h1>
+        <div class="small">Track meals • Visualize calories • Set goals</div>
+      </div>
+      <div>
+        <button id="btn-export" title="Print/export report">Print / Export</button>
+      </div>
+    </header>
+
+    <main class="grid">
+
+      <!-- Left -->
+      <section>
+        <div class="card" id="dashboard">
+          <h2 style="margin:0 0 8px 0">Dashboard</h2>
+          <div class="muted">Today's total</div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:6px">
+            <div>
+              <div id="today-total" class="today-total">0 kcal</div>
+              <div class="small">Goal: <span id="goal-value">2000</span> kcal</div>
+            </div>
+
+            <div style="width:45%">
+              <div class="progress-wrap">
+                <div id="progress-bar" class="progress"></div>
+              </div>
+              <div id="progress-text" class="small" style="margin-top:6px">0% of goal</div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <canvas id="weekChart" height="120"></canvas>
+          </div>
+        </div>
+
+        <!-- Add Meal -->
+        <div class="card" style="margin-top:12px">
+          <h3 style="margin:0 0 8px 0">Add a meal</h3>
+
+          <form id="meal-form">
+            <div class="row-wrap">
+              <div class="flex2">
+                <label for="meal-name">Meal name</label>
+                <input id="meal-name" type="text" placeholder="e.g., Oatmeal with banana" required>
+              </div>
+
+              <div>
+                <label for="meal-cat">Category</label>
+                <select id="meal-cat">
+                  <option>Breakfast</option>
+                  <option>Lunch</option>
+                  <option>Dinner</option>
+                  <option>Snack</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="meal-cal">Calories (kcal)</label>
+                <input id="meal-cal" type="number" min="0" placeholder="300" required>
+              </div>
+            </div>
+
+            <div class="row" style="margin-top:10px">
+              <button type="submit">Add Meal</button>
+              <button id="btn-clear" type="button" class="ghost">Clear all</button>
+            </div>
+          </form>
+
+          <div class="meals-list" id="meals-list" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- Right -->
+      <aside>
+        <div class="card">
+          <h3 style="margin:0 0 8px 0">Daily Goal</h3>
+
+          <form id="goal-form">
+            <label for="goal-input">Set daily calories</label>
+            <div class="row">
+              <input id="goal-input" type="number" min="1" value="2000">
+              <button type="submit">Save</button>
+            </div>
+          </form>
+
+          <div class="small" style="margin-top:10px">
+            Tip: Set a realistic daily calorie goal and log meals to watch your progress.
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Weekly Summary</h3>
+          <div id="week-summary" class="small"></div>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Extras</h3>
+          <button id="btn-export-json" class="ghost">Export JSON</button>
+          <button id="btn-import-json" class="ghost">Import JSON</button>
+          <input id="import-file" type="file" accept="application/json" hidden>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      Demo — data stored locally in your browser.
+    </footer>
+  </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
