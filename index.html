@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriWise | Daily Nutrition Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Placeholder for a professional font, e.g., using Google Fonts -->
+    <link href="fonts.googleapis.com" rel="stylesheet">
+    <!-- Placeholder for a charting library like Chart.js (necessary for feature 1c) -->
+    <!-- <script src="cdn.jsdelivr.net"></script> -->
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <h1>NutriWise</h1>
+            <nav>
+                <a href="#dashboard">Dashboard</a>
+                <a href="#log-meal">Log Meal</a>
+                <a href="#goals">Goals</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Dashboard Section -->
+        <section id="dashboard" class="dashboard-section">
+            <div class="stats-grid">
+                <div class="card stat-card">
+                    <h2>Daily Calories Goal</h2>
+                    <p id="goal-display">2000 kcal</p>
+                </div>
+                <div class="card stat-card">
+                    <h2>Calories Consumed</h2>
+                    <p id="consumed-display">0 kcal</p>
+                </div>
+                <div class="card stat-card progress-card">
+                    <h2>Progress</h2>
+                    <!-- Feature 1c: Visualization Placeholder -->
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card chart-container">
+                <h2>Weekly Summary (Visualization Placeholder)</h2>
+                <!-- A real implementation would use a <canvas> element here for Chart.js -->
+                <div class="placeholder-chart">Monthly Trend Chart Placeholder</div>
+            </div>
+        </section>
+
+        <!-- Meal Logging Section -->
+        <section id="log-meal" class="log-meal-section">
+            <div class="card">
+                <h2>Log a New Meal (Feature 1a)</h2>
+                <form id="meal-form">
+                    <label for="meal-name">Meal Name:</label>
+                    <input type="text" id="meal-name" required>
+                    
+                    <label for="meal-category">Category:</label>
+                    <select id="meal-category" required>
+                        <option value="Breakfast">Breakfast</option>
+                        <option value="Lunch">Lunch</option>
+                        <option value="Dinner">Dinner</option>
+                        <option value="Snack">Snack</option>
+                    </select>
+
+                    <label for="meal-calories">Calories (kcal):</label>
+                    <input type="number" id="meal-calories" required min="1">
+                    
+                    <button type="submit">Add Meal</button>
+                </form>
+            </div>
+            
+            <div class="card">
+                <h2>Today's Entries</h2>
+                <ul id="meal-list">
+                    <!-- Dynamic meal entries will be inserted here by JavaScript -->
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 NutriWise. Simple, engaging nutrition tracking.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
